@@ -2,7 +2,6 @@ def unbound_knapsack(W, n, weights, values):
     dp = [0]*(W+1)
 
     for x in range(1, W+1):
-
         for i in range(n):
             wi = weights[i]
             if wi <= x:
