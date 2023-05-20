@@ -1,8 +1,7 @@
 # Print weights of items that form the optimal solution
-def unbound_knapsackOptimalSolution(W, n, weights, values):
+def unbound_knapsackOpt(W, n, weights, values):
     dp = [0]*(W+1)
     sol = [0]*(W+1)
-
     for x in range(1,W+1):
         for i in range(n):
             wi = weights[i]
@@ -10,14 +9,11 @@ def unbound_knapsackOptimalSolution(W, n, weights, values):
                 if((dp[x-wi] + values[i] ) > dp[x]):
                     dp[x]=dp[x-wi] + values[i]
                     sol[x]= wi
-
-
     w = W
     solution = []
     while w>0:
         solution.append(sol[w])
         w = w-sol[w]
-
     return solution
 
 
